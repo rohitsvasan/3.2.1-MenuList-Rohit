@@ -13,7 +13,7 @@ sandwiches = [menu[0], menu[1], menu[2]]
 menu[3]+" - $1.00"
 menu[4]+" - $1.50"
 menu[5]+" - $2.00"
-menu[6]+" - $1.75"
+menu[6]+" - $1.50"
 fries = [menu[3], menu[4], menu[5], menu[6]]
 
 "Drinks:"
@@ -24,7 +24,7 @@ menu[10]+" - Free!"
 drinks = [menu[7], menu[8], menu[9], menu[10]]
 
 sandwich = str(0)
-sandwichamount = 0
+sandwichcount = 0
 responsetruth = False
 totalcost = 0.00
 while responsetruth == False:
@@ -33,8 +33,8 @@ while responsetruth == False:
         print("Great! Got that.")
         confirm1 = input("One Chicken sandwich, correct?")
         if confirm1 == "Yes":
-            sandwichamount = int(input())
-            totalcost = 5.25
+            sandwichcount = int(input("How many of them?"))
+            totalcost = 5.25 * sandwichcount
             print("Alright got it!")
             responsetruth = True
         else:
@@ -45,7 +45,8 @@ while responsetruth == False:
         print("Great! Got that.")
         confirm1 = input("One Beef sandwich, correct?")
         if confirm1 == "Yes":
-            totalcost = 6.25
+            sandwichcount = int(input("How many of them?"))
+            totalcost = 6.25 * sandwichcount
             print("Alright got it!")
             responsetruth = True
         else:
@@ -56,76 +57,97 @@ while responsetruth == False:
         print("Great! Got that.")
         confirm1 = input("One Tofu sandwich, correct?")
         if confirm1 == "Yes":
-            totalcost = 5.75
+            sandwichcount = int(input("How many of them?"))
+            totalcost = 5.75 * sandwichcount
             print("Alright got it!")
             responsetruth = True
         else:
             sandwich = "No sandwich"
+            sandwichcount = 0
             print("Oh ok.")
             responsetruth = True
     else:
         responsetruth = False
-        print("Invalid response. Respond with Chicken, Beef, or Tofu.")
+        print("Invalid response. Respond with one of the numbers listed above.")
 
 if responsetruth == True: 
     responsetruth1 = False
+    sodacount = 0
     while responsetruth1 == False:
         beverage = input("Alright, would you like a drink?")
         if beverage == "Yes":
-            beveragetype = input("What size of drink would you like? Small soda ($1.00), Medium soda ($1.75), Large soda ($2.25), or Water (Free)?")
-            if beveragetype == "Small soda":
-                totalcost = totalcost + 1.00
+            beveragetype = input("What size of drink would you like? Small soda (1), Medium soda (2), Large soda (3), or Water (4)?")
+            if beveragetype == "1":
+                sodacount = int(input("How many sodas would you like?"))
+                totalcost = totalcost + 1.00 * sodacount
                 print("Alright got it!")
                 responsetruth1 = True
-            elif beveragetype == "Medium soda":
-                totalcost = totalcost + 1.75
+            elif beveragetype == "2":
+                sodacount = int(input("How many sodas would you like?"))
+                totalcost = totalcost + 1.75 * sodacount
                 print("Alright got it!")
                 responsetruth1 = True
-            elif beveragetype == "Large soda":
-                totalcost = totalcost + 2.25
+            elif beveragetype == "3":
+                sodacount = int(input("How many sodas would you like?"))
+                totalcost = totalcost + 2.25 * sodacount
                 print("Alright got it!")
                 responsetruth1 = True
-            elif beveragetype == "Water":
+            elif beveragetype == "4":
                 print("Alright that's good. There won't be any extra cost!")
                 responsetruth1 = True
             else:
-                print("Invalid response. Respond with either the size of soda or water.")
+                print("Invalid response. Respond with one of the numbers listed above.")
                 responsetruth1 = False
         else:
             beveragetype = "No drink"
+            sodacount = 0
             print("Oh ok.")
             responsetruth1 = True
 
 if responsetruth1 == True:
     responsetruth2 = False
+    friescount = 0
     while responsetruth2 == False:
         friestype = input("Alright, would you like some fries?")
         if friestype == "Yes":
-            friestype = input("What size of fries would you like? Small fries ($1.00), Medium fries ($1.50), Large fries ($2.00)")
-            if friestype == "Small fries":
+            friestype = input("What size of fries would you like? Small fries (1), Medium fries (2), Large fries (3), or Curly fries (4)")
+            if friestype == "1":
                 supersize = input("Would you like to supersize your fries?")
                 if supersize == "Yes":
-                    totalcost = totalcost + 2.00
+                    friescount = int(input("How many of them would you like?"))
+                    totalcost = totalcost + 2.00 * friescount
                     print("Alright got it!")
                     responsetruth2 = True
                 else:
-                    totalcost = totalcost + 1.00
+                    friescount = int(input("How many of them would you like?"))
+                    totalcost = totalcost + 1.00 * friescount
                     print("Alright got it!")
                     responsetruth2 = True
-            elif friestype == "Medium fries":
-                totalcost = totalcost + 1.50
+            elif friestype == "2":
+                friescount = int(input("How many of them would you like?"))
+                totalcost = totalcost + 1.50 * friescount
                 print("Alright got it!")
                 responsetruth2 = True
-            elif friestype == "Large fries":
-                totalcost = totalcost + 2.00
+            elif friestype == "3":
+                friescount = int(input("How many of them would you like?"))
+                totalcost = totalcost + 2.00 * friescount
                 print("Alright got it!")
                 responsetruth2 = True
+            elif friestype == "4":
+                supersize2 = input("Would you like to supersize your curly fries?")
+                if supersize2 == "Yes":
+                    friescount = int(input("How many of them would you like?"))
+                    totalcost = totalcost + 2.50 * friescount
+                else:
+                    friescount = int(input("How many of them would you like?"))
+                    totalcost = totalcost + 1.50 * friescount
             else:
                 print("Invalid response. Respond with the size of the fries you want.")
                 responsetruth2 = False
         else:
             friestype = "No fries"
             print("Oh ok.")
+            friescount = 0
             responsetruth2 = True
 
 if responsetruth2 == True:
@@ -140,7 +162,8 @@ if responsetruth2 == True:
             totalcost = totalcost + int(packets)*0.25
             checkfood = input("Alright you ordered "+sandwich+", "+beveragetype+", "+friestype+", and "+str(packets)+" packets of ketchup, right?")
             if checkfood == "Yes":
-                totalcost = totalcost - 1
+                if sandwichcount >= 1 and friescount >= 1:
+                    totalcost = totalcost - 1
                 print("Alright that would be $"+str(totalcost)+"." "Pay here!")
                 print("Thank you! Have a good one!")
                 responsetruth3 = True
@@ -149,14 +172,16 @@ if responsetruth2 == True:
             totalcost = totalcost + int(packets)*0.35
             checkfood = input("Alright you ordered "+sandwich+", "+beveragetype+", "+friestype+", and "+str(packets)+" packets of mayo, right?")
             if checkfood == "Yes":
-                totalcost = totalcost - 1
+                if sandwichcount >= 1 and friescount >= 1:
+                    totalcost = totalcost - 1
                 print("Alright that would be $"+str(totalcost)+"." "Pay here!")
                 print("Thank you! Have a good one!")
                 responsetruth3 = True
         elif condiment == "Neither":
             checkfood = input("Alright you ordered "+sandwich+", "+beveragetype+", "+friestype+", and no condiments, right?")
             if checkfood == "Yes":
-                totalcost = totalcost - 1
+                if sandwichcount >= 1 and friescount >= 1:
+                    totalcost = totalcost - 1
                 print("Alright that would be $"+str(totalcost)+"." "Pay here!")
                 print("Thank you! Have a good one!")
                 responsetruth3 = True
