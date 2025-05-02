@@ -1,5 +1,3 @@
-
-
 menu = ["Chicken sandwich", "Beef sandwich", "Tofu sandwich", "Small fries", "Medium fries", "Large fries", "Small drink", "Medium drink", "Large drink", "Water"]
 prices = [5.25, 6.25, 5.75, 1.00, 1.50, 2.00, 1.00, 1.75, 2.25, 0.00]
 order = []
@@ -48,11 +46,14 @@ while item != "done":
                         if totalcost >= 10:
                             discount = round(0.1*totalcost)
                             totalcost = totalcost - discount
-                            print("Alright your total is going to be $"+str(totalcost)+". Pay here!")
-                            break
-                else:
-                    print("Please enter a positive integer for the number of packets.")
+                        print("Alright your total is going to be $"+str(totalcost)+". Pay here!")
+                        break
+                    else:
+                        print("Please enter a positive integer for the number of packets.")
             else:
+                if totalcost >= 10:
+                    discount = round(0.1*totalcost)
+                    totalcost = totalcost - discount
                 print("Alright your total is going to be $"+str(totalcost)+". Pay here!")
         else:
             print("Oh ok.")
