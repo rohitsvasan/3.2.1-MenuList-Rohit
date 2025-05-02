@@ -34,20 +34,27 @@ while item != "done":
     elif item == "done": 
         condiments = str(0)
         packets = 0
-        discount = 0.0
-        checkfood = input("So you want"+ str(order))
+        discount = 0
+        print("Here is your order.") 
+        for item, itemcount in order:
+            print(f"{itemcount} x {item}")
+        checkfood = input("Would you like this order?")
         if checkfood == "yes":
             condiments = input("Would you like some packets of ketchup with your meal?")
             if condiments == "yes":
                 while packets >= 0:
-                    packets = int(input("How many packets would you like?"))
-                    if packets >= 0:
-                        totalcost = totalcost + packets * 0.25
-                        if totalcost >= 10:
-                            discount = round(0.1*totalcost)
-                            totalcost = totalcost - discount
-                        print("Alright your total is going to be $"+str(totalcost)+". Pay here!")
-                        break
+                    packets = input("How many packets would you like?")
+                    if packets.isdigit():
+                        packets = int(packets)
+                        if packets >= 0:
+                            totalcost = totalcost + packets * 0.25
+                            if totalcost >= 10:
+                                discount = round(0.1*totalcost)
+                                totalcost = totalcost - discount
+                            print("Alright your total is going to be $"+str(totalcost)+". Pay here!")
+                            break
+                        else:
+                            print("Please enter a positive integer for the number of packets.")
                     else:
                         print("Please enter a positive integer for the number of packets.")
             else:
