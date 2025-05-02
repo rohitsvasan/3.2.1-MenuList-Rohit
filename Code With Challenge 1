@@ -36,7 +36,7 @@ while item != "done":
         packets = 0
         discount = 0
         print("Here is your order.") 
-        for item, itemcount in order:
+        for item, count in order:
             print(f"{itemcount} x {item}")
         checkfood = input("Would you like this order?")
         if checkfood == "yes":
