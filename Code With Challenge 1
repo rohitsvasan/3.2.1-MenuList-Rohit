@@ -24,37 +24,37 @@ print(menu[9]+"(s) - Free!")
 while item != "done":
     item = input("What item(s) would you like? Type done to continue onwards.")
     if item in menu:
-        itemcount= input("How many of these would you like?")
-        if int(itemcount) >= 0:
-            totalcost += prices[menu.index(item)] * int(itemcount)
-            item = str(itemcount) + item
-            order.append(item)
+        itemcount = input("How many of these would you like?")
+        if itemcount.isdigit():
+            if int(itemcount) >= 0:
+                totalcost += prices[menu.index(item)] * int(itemcount)
+                order.append((item, itemcount))
+            else:
+                print("Please enter a non-negative number.")
         else:
-            print("Please enter a non-negative number.")
+            print("Please enter an integer for the count.")
     elif item == "done": 
         condiments = str(0)
         packets = 0
-        discount = 0
-        print("Here is your order.") 
+        discount = 0.0
+        print("Here's your order:")
         for item, count in order:
-            print(f"{itemcount} x {item}")
-        checkfood = input("Would you like this order?")
-        if checkfood == "yes":
+            print(f"{count} x "+ item)
+        checkfood = input("Do you want this order?")
+        if checkfood.lower() == "yes":
             condiments = input("Would you like some packets of ketchup with your meal?")
-            if condiments == "yes":
+            if condiments.lower() == "yes":
                 while packets >= 0:
-                    packets = input("How many packets would you like?")
-                    if packets.isdigit():
+                    packets = (input("How many packets would you like?"))
+                    if packets.isdigit:
                         packets = int(packets)
-                        if packets >= 0:
-                            totalcost = totalcost + packets * 0.25
-                            if totalcost >= 10:
-                                discount = round(0.1*totalcost)
-                                totalcost = totalcost - discount
-                            print("Alright your total is going to be $"+str(totalcost)+". Pay here!")
-                            break
-                        else:
-                            print("Please enter a positive integer for the number of packets.")
+                    if packets >= 0:
+                        totalcost = totalcost + packets*0.25
+                        if totalcost >= 10:
+                            discount = round(0.1*totalcost)
+                            totalcost = totalcost - discount
+                        print("Alright your total is going to be $"+str(totalcost)+". Pay here!")
+                        break
                     else:
                         print("Please enter a positive integer for the number of packets.")
             else:
