@@ -46,14 +46,14 @@ while item != "done":
             if condiments.lower() == "yes":
                 while packets >= 0:
                     packets = (input("How many packets would you like?"))
-                    if packets.isdigit:
-                        packets = int(packets)
-                    if packets >= 0:
-                        totalcost = totalcost + packets*0.25
-                        if totalcost >= 10:
-                            discount = round(0.1*totalcost)
-                            totalcost = totalcost - discount
+                    if packets.isdigit():
+                        if int(packets) >= 0:
+                            totalcost = totalcost + packets*0.25
+                            if totalcost >= 10:
+                                totalcost = round(0.9*totalcost)
                         print("Alright your total is going to be $"+str(totalcost)+". Pay here!")
+                        totalcost = 0
+                        order = []
                         break
                     else:
                         print("Please enter a positive integer for the number of packets.")
@@ -62,6 +62,9 @@ while item != "done":
                     discount = round(0.1*totalcost)
                     totalcost = totalcost - discount
                 print("Alright your total is going to be $"+str(totalcost)+". Pay here!")
+                totalcost = 0
+                order = []
+                break
         else:
             print("Oh ok.")
             totalcost = 0
