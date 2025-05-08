@@ -48,9 +48,9 @@ while item != "done":
                     packets = (input("How many packets would you like?"))
                     if packets.isdigit():
                         if int(packets) >= 0:
-                            totalcost = totalcost + packets*0.25
-                            if totalcost >= 10:
-                                totalcost = round(0.9*totalcost)
+                            totalcost = totalcost + int(packets)*0.25
+                        if "Chicken sandwich" or "Beef Sandwich" or "Tofu sandwich" in order and "Small fries" or "Medium fries" or "Large fries" in order and "Small drink" or "Medium drink" or "Large drink" in order:
+                               totalcost = totalcost - 1                              
                         print("Alright your total is going to be $"+str(totalcost)+". Pay here!")
                         totalcost = 0
                         order = []
@@ -58,9 +58,8 @@ while item != "done":
                     else:
                         print("Please enter a positive integer for the number of packets.")
             else:
-                if totalcost >= 10:
-                    discount = round(0.1*totalcost)
-                    totalcost = totalcost - discount
+                if "Chicken sandwich" or "Beef Sandwich" or "Tofu sandwich" in order and "Small fries" or "Medium fries" or "Large fries" in order and "Small drink" or "Medium drink" or "Large drink" in order: 
+                    totalcost = totalcost - 1
                 print("Alright your total is going to be $"+str(totalcost)+". Pay here!")
                 totalcost = 0
                 order = []
